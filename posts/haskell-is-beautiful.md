@@ -1,7 +1,7 @@
 ---
 title: Haskell is Beautiful
 author: Forkk
-date: 1400362048000
+published: 2014-05-17 16:27:28
 tags: haskell, programming, functional, monads, rant
 ---
 
