@@ -91,10 +91,19 @@ postCtx =
 defaultCtx :: Context String
 defaultCtx = navTagsField "tags-nav"
           <> navPostListField "posts-nav"
+          <> gitRevisionField "revision"
           <> defaultContext
 
 
 --------------------------------------------------------------------------------
+
+gitRevisionField :: String -> Context String
+gitRevisionField = flip field (const gitRevision)
+
+gitRevision :: Compiler String
+gitRevision = unixFilter "git" ["rev-parse", "HEAD"] ""
+
+
 
 navTagsField :: String -> Context String
 navTagsField = flip field mkNavTags
