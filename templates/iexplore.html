@@ -1,0 +1,35 @@
+<!-- Hacks for "supporting" awful web browsers. -->
+
+<div id="ie-warning-container">
+<!--[if IE]>
+<div id="ie-warning">
+  <h1>Upgrade Your Web Browser</h1>
+  <p>
+    Warning: It looks like you're using an ancient version of Internet
+    Explorer. Internet Explorer is widely known for its failure to properly
+    handle many web pages. No version of Internet Explorer will ever be directly
+    supported by this site. It is possible that it might work, but I will not
+    put any effort towards making it work. Please upgrade to a real web
+    browser. Here are some great (and free) web browsers which are both faster,
+    more secure, and more standards-compliant than Internet Explorer:
+    <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> and
+    <a href="http://www.google.com/chrome/">Google Chrome</a>.
+  </p>
+</div>
+<![endif]-->
+</div>
+
+<script>
+if (navigator.appVersion.indexOf("MSIE 10") !== -1)
+{
+    document.getElementById("ie-warning-container").innerHTML =
+"<div id='ie-warning'>" +
+  "<h1>Upgrade Your Web Browser</h1>" +
+  "<p>" +
+    "Warning: It looks like you're using Internet Explorer. Internet Explorer is widely known for its failure to properly handle many web pages. No version of Internet Explorer will ever be directly supported by this site. It is possible that it might work, but I will not put any effort towards making it work. Please upgrade to a real web browser. Here are some great (and free) web browsers which are both faster, more secure, and more standards-compliant than Internet Explorer: " +
+    "<a href='https://www.mozilla.org/en-US/firefox/new/'>Firefox</a> and " +
+    "<a href='http://www.google.com/chrome/'>Google Chrome</a>." +
+  "</p>" +
+"</div>"
+}
+</script>
