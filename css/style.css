@@ -1,0 +1,149 @@
+/* Text */
+
+body {
+    color: #666;
+    font-size: 15px;
+    
+    font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    color: #444;
+}
+
+h2 {
+    font-size: 20px;
+    color: #444;
+}
+
+p {
+    text-align: justify;
+}
+
+a         { color: #E70; }
+a :hover  { color: #F90; }
+a :active { color: #D70; }
+
+/* Dammit, Firefox D: */
+a :focus { outline: none; }
+
+pre {
+    width: 100%;
+    overflow: auto;
+    
+    box-sizing: border-box;
+    padding: 16px 16px;
+    border: solid 1px #EEE;
+}
+
+
+article aside.info {
+    color: #AAA;
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+#post-list article {
+    border-bottom: solid 1px #AAA;
+}
+
+#post-list article :last-child {
+    border-bottom: none;
+}
+
+
+/* Header */
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 32pt;
+}
+
+
+/* Footer */
+
+footer {
+    border-top: solid 2px #888;
+    font-size: 12px;
+    margin-top: 30px;
+    padding: 6px 24px;
+}
+
+footer p {
+    margin: 0 0;
+    text-align: center;
+}
+
+
+/* Navbar */
+
+nav h1 {
+    font-size: 12pt;
+    text-transform: uppercase;
+    margin: 0 0;
+}
+
+nav a {
+    font-size: 11pt;
+    font-weight: normal;
+    text-decoration: none;
+    color: #444;
+}
+
+nav a :hover  { color: #444; }
+nav a :active { color: #444; }
+
+
+/* Desktop */
+@media only screen and (min-width:800px) {
+    /* Nav bar */
+    nav {
+        background-color: #555;
+
+        text-align: right;
+        padding: 24px 0;
+    }
+
+    nav section {
+        margin-top: 0px;
+    }
+
+    nav h1 {
+        padding: 8px 24px;
+        padding-top: 16px;
+        color: #DDD;
+    }
+
+    nav a {
+        padding: 4px 24px;
+        color: #AAA;
+    }
+
+    nav a :hover {
+        background-color: #EEE;
+    }
+
+    nav a :active {
+        background-color: #DDD;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width:799px) {
+    nav h1 {
+        font-size: 15pt;
+    }
+
+    nav a {
+        padding: 6px 0;
+        font-size: 13pt;
+    }
+
+    nav a :hover  { color: #888; }
+    nav a :active { color: #222; }
+}

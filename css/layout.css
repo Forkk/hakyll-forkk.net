@@ -1,0 +1,47 @@
+main, header, footer {
+    margin: 20px auto;
+    padding: 0 24px;
+    max-width: 800px;
+}
+
+nav a, nav h1 {
+    display: block;
+}
+
+/* Desktop */
+@media screen and (min-width:800px) {
+    nav {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 200px;
+    }
+
+    main, header, footer {
+        margin-left: 230px;
+    }
+    
+    #nav-post-list {
+        display: block;
+    }
+}
+
+
+/* Mobile */
+@media screen and (max-width:799px) {
+    nav {
+        border: none;
+        height: 100%;
+        text-align: center;
+    }
+    
+    nav section {
+        display: inline-block;
+        margin: 12px 32px;
+    }
+
+    #nav-post-list {
+        display: none;
+    }
+}

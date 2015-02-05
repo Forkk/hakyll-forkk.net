@@ -1,0 +1,14 @@
+---
+title: Forkk.net
+---
+
+<section id="post-list">
+  $for(posts)$
+  <article>
+    <h1><a href="$url$">$title$</a></h1>
+    $partial("templates/article-info.html")$
+
+    $body$
+  </article>
+  $endfor$
+</section>
