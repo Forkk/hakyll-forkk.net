@@ -21,10 +21,6 @@ nav a, nav h1 {
     main, header, footer {
         margin-left: 230px;
     }
-    
-    #nav-post-list {
-        display: block;
-    }
 }
 
 
@@ -36,12 +32,13 @@ nav a, nav h1 {
         text-align: center;
     }
     
-    nav section {
+    nav div {
         display: inline-block;
         margin: 12px 32px;
+        vertical-align: top;
     }
 
-    #nav-post-list {
+    #nav-post-list, #nav-tag-list {
         display: none;
     }
 }
