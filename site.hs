@@ -1,7 +1,13 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TupleSections     #-}
+import           Control.Applicative
+import           Data.Function
+import           Data.List
 import           Data.Monoid
 import           Hakyll
+import           System.FilePath
+import           System.Locale
 
 
 --------------------------------------------------------------------------------
@@ -84,6 +90,7 @@ postCtx =
 
 defaultCtx :: Context String
 defaultCtx = navTagsField "tags-nav"
+          <> navPostListField "posts-nav"
           <> defaultContext
 
 
@@ -101,3 +108,27 @@ renderNavTags = renderTags mkTag unlines
   where
     mkTag tag url _ _ _ =
         "<a href=\"" <> escapeHtml url <>"\">" <> escapeHtml tag <>"</a>"
+
+
+
+-- The post list in the navbar is tough because we can't simply use loadAll
+-- like we do with other post lists. Doing so would cause dependency loops.
+---- Navbar Post List ----------------------------------------------------------
+
+navPostListField :: String -> Context String
+navPostListField  = flip field mkPostList
+  where
+    mkPostList _ = unlines <$> (mapM mkEntry =<< loadPostList)
+    mkEntry (url, ident) = do
+      title <- getMetadataField' ident "title"
+      return ("<a href=\"/" <> escapeHtml url <>"\">" <> escapeHtml title <>"</a>")
+
+loadPostList :: Compiler [(String, Identifier)]
+loadPostList =
+    map (\i -> (fixExt i, i)) <$> (sortByTime =<< getMatches "posts/*")
+  where
+    tupleTime ident = (ident,) <$> getItemUTC defaultTimeLocale ident
+    sortByTime :: [Identifier] -> Compiler [Identifier]
+    sortByTime ps = map fst <$> sortBy (compare `on` snd) <$> mapM tupleTime ps
+    fixExt :: Identifier -> String
+    fixExt i = replaceExtension (toFilePath i) "html"
