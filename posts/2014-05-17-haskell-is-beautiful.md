@@ -2,6 +2,7 @@
 title: Haskell is Beautiful
 author: Forkk
 date: 1400362048000
+tags: haskell, programming, functional, monads, rant
 ---
 
 Haskell is probably one of my favorite programming languages, but

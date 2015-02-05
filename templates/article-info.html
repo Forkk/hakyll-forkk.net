@@ -1,6 +1,13 @@
 <aside class="info">
+  <div>
     Posted on $date$
     $if(author)$
-        by $author$
+      by $author$
     $endif$
+  </div>
+  $if(tags)$
+  <div>
+    Tags: $tags$
+  </div>
+  $endif$
 </aside>
