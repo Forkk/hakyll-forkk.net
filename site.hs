@@ -118,7 +118,7 @@ renderNavTags = renderTags mkTag unlines
 navPostListField :: String -> Context String
 navPostListField  = flip field mkPostList
   where
-    mkPostList _ = unlines <$> (mapM mkEntry =<< loadPostList)
+    mkPostList _ = unlines <$> reverse <$> (mapM mkEntry =<< loadPostList)
     mkEntry (url, ident) = do
       title <- getMetadataField' ident "title"
       return ("<a href=\"/" <> escapeHtml url <>"\">" <> escapeHtml title <>"</a>")
