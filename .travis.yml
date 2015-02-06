@@ -17,6 +17,7 @@ deploy:
   secret_access_key:
     secure: l2sywXi9qXjjE9Rk4QoJ+CdxWI00/0qb3E01EokkQd/iNGTdLg0ehDCiNW1ltdQZqWdmJktai5fgij6rPs4l/q5CwqZCEqigS6vC5q0c+Q1wdKAJo5JE2ZJfcLfic2gpVHhT1JUIsZfQURsQi9x/0d41FfmI4aQikDZJJ/XiAaM=
   bucket: dev.forkk.net
+  skip_cleanup: true
   local_dir: _site
   upload-dir: $TRAVIS_BRANCH
   endpoint: dev.forkk.net.s3-website-us-east-1.amazonaws.com
