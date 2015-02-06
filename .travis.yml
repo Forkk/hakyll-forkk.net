@@ -23,7 +23,6 @@ deploy:
   local_dir: _site
   upload-dir: $TRAVIS_BRANCH
   endpoint: dev.forkk.net.s3-website-us-east-1.amazonaws.com
-  region: US Standard
   on:
     repo: Forkk/forkk.net
     all_branches: true
