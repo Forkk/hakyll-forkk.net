@@ -5,9 +5,9 @@ import           Control.Applicative
 import           Data.Function
 import           Data.List
 import           Data.Monoid
+import           Data.Time
 import           Hakyll
 import           System.FilePath
-import           System.Locale
 
 
 --------------------------------------------------------------------------------
