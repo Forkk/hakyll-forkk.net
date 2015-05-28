@@ -1,12 +1,13 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections     #-}
-import           Control.Applicative
+import           Control.Exception
 import           Data.Function
 import           Data.List
 import           Data.Monoid
 import           Data.Time
 import           Hakyll
+import           System.Environment
 import           System.FilePath
 
 
@@ -104,8 +105,15 @@ defaultCtx = navTagsField "tags-nav"
 gitRevisionField :: String -> Context String
 gitRevisionField = flip field (const gitRevision)
 
+-- Compiler which attempts to find the current git revision. This is done by
+-- first checking the "REVISION" environment variable and, if this fails,
+-- running the command "git rev-parse HEAD".
 gitRevision :: Compiler String
-gitRevision = unixFilter "git" ["rev-parse", "HEAD"] ""
+gitRevision = do
+    rev <- unsafeCompiler (getEnv "REVISION" `catch` (\e -> return (e :: SomeException) >> return ""))
+    if rev == ""
+       then unixFilter "git" ["rev-parse", "HEAD"] ""
+       else return rev
 
 
 

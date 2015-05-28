@@ -1,4 +1,4 @@
-{ fnetSrc ? ./.
+{ fnetSrc ? { outPath = ./.; revCount = 0; shortRev = "abcdef"; rev = "HEAD"; }
 , officialRelease ? false
 }:
 
@@ -18,7 +18,7 @@ in rec {
       buildInputs = [ glibcLocales git siteBuilderDeps ];
 
       buildPhase = ''
-        LANG=en_US.UTF-8 runhaskell site.hs rebuild
+        LANG=en_US.UTF-8 REVISION=${fnetSrc.rev} runhaskell site.hs rebuild
       '';
 
       installPhase = ''
